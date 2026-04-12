@@ -1,0 +1,151 @@
+// ── Variables ────────────────────────────────────────────────
+$color-gold:   #c9a84c;
+$color-dark:   #1a1a1a;
+$color-cream:  #fdf8ef;
+$color-muted:  #7a6e5f;
+$font-serif:   'Playfair Display', Georgia, serif;
+$font-sans:    'Lato', Arial, sans-serif;
+$border-thin:  1px solid $color-gold;
+
+// ── Reset / Base ──────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #e8dfc8;
+  font-family: $font-sans;
+  color: $color-dark;
+}
+
+// ── Invitation card ───────────────────────────────────────────
+.invitation {
+  position: relative;
+  background: $color-cream;
+  max-width: 560px;
+  width: 100%;
+  padding: 3rem 3.5rem;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0,0,0,.18);
+
+  // thin double-border effect
+  outline: $border-thin;
+  outline-offset: -12px;
+}
+
+// ── Corner decorations ────────────────────────────────────────
+.deco {
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $color-gold 20%, $color-gold 80%, transparent);
+
+  &--top  { top: 1.2rem; }
+  &--bottom { bottom: 1.2rem; }
+}
+
+// ── Graduation cap ────────────────────────────────────────────
+.hat {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+// ── Header ────────────────────────────────────────────────────
+.invitation__header {
+  margin-bottom: 2rem;
+}
+
+.invitation__preamble {
+  font-family: $font-sans;
+  font-size: .85rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: $color-muted;
+  margin-bottom: .6rem;
+}
+
+.invitation__name {
+  font-family: $font-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: $color-dark;
+  line-height: 1.15;
+}
+
+.invitation__title {
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: $color-gold;
+  margin-top: .3rem;
+}
+
+// ── Details block ─────────────────────────────────────────────
+.invitation__details {
+  display: grid;
+  gap: .8rem;
+  margin-bottom: 2rem;
+  border-top: $border-thin;
+  border-bottom: $border-thin;
+  padding: 1.4rem 0;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 180px 190px;
+  gap: .4rem .8rem;
+  align-items: center;
+  justify-items: center;
+  font-size: .95rem;
+  line-height: 1.5;
+
+  &__label {
+    font-weight: 700;
+    text-align: right;
+    color: $color-muted;
+    text-transform: uppercase;
+    font-size: .78rem;
+    letter-spacing: .06em;
+  }
+
+  &__value {
+    text-align: left;
+    max-width: 240px;
+    width: 100%;
+  }
+}
+
+// ── Quote ─────────────────────────────────────────────────────
+.invitation__quote {
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: $color-muted;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+// ── Footer ────────────────────────────────────────────────────
+.invitation__footer {
+  font-size: .9rem;
+  line-height: 1.7;
+
+  &-line { color: $color-muted; }
+
+  &-name {
+    font-family: $font-serif;
+    font-size: 1.1rem;
+  }
+}
+
+// ── Print styles ──────────────────────────────────────────────
+@media print {
+  body { background: white; padding: 0; }
+  .invitation { box-shadow: none; max-width: 100%; }
+}
